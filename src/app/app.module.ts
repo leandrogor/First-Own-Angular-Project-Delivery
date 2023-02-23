@@ -5,24 +5,27 @@ import { MenuComponent } from './components/menu/menu.component';
 import { HomeComponent } from './components/home/home.component';
 import { RouterModule } from '@angular/router';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { ErrorComponent } from './components/error/error.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     HomeComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    ErrorComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      {path: '', redirectTo: 'inicio', pathMatch: 'full' },
-
+      {path: '', redirectTo: 'home', pathMatch: 'full' },
       {path: 'home', component: HomeComponent },
-      {path: 'wcm', component: WelcomeComponent },
+
+      {path: 'welcome', component: WelcomeComponent },
       
-      // {path: '**', component: PaginaNoEncontradaComponent }
-      {path: '**', redirectTo: 'inicio' }
+      {path: '**', component: ErrorComponent },
     ]),
   ],
   providers: [],
